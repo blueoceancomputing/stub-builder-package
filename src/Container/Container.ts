@@ -1,5 +1,6 @@
 import 'reflect-metadata';
 import { Container, ContainerModule } from 'inversify';
+import CoreBindings from '@Core/Bindings';
 import ModuleBindings from '@Modules/Bindings';
 
 const container = new Container();
@@ -17,6 +18,7 @@ const ApplicationBindings = new ContainerModule((bind) => {
 const bindings: Array<ContainerModule> = [
   ApiBindings,
   ApplicationBindings,
+  CoreBindings,
   ModuleBindings,
 ]
 

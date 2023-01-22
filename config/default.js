@@ -1,4 +1,4 @@
 module.exports = {
   applications: require('./common/applications'),
-  databases: require('./common/databases'),
+  databases: require('./databases'),
 };

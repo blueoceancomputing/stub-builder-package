@@ -3,4 +3,7 @@ export default {
   Application: Symbol.for('Application'),
   Command: Symbol.for('Command'),
   Config: Symbol.for('Config'),
+
+  // Core/Database
+  DatabaseDialect: Symbol.for('DatabaseDialect'),
 };

@@ -1,8 +1,8 @@
 import 'reflect-metadata';
 import { ContainerModule } from 'inversify';
 
-const databaseBindings = new ContainerModule((bind) => {
+const CoreBindings = new ContainerModule((bind) => {
   require('./Database/Bindings')(bind);
 });
 
-export { databaseBindings };
+export default CoreBindings;

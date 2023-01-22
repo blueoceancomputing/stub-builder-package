@@ -1,0 +1,5 @@
+interface DialectContract {
+  
+}
+
+export { DialectContract }
