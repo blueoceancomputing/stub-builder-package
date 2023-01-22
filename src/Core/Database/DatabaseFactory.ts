@@ -3,8 +3,8 @@ import { has, IConfig } from 'config'
 import Types from "@Container/Types";
 import { DatabaseConfig } from "@Core/Database/Contracts/DatabaseConfig";
 import { DatabaseNotFoundException } from "@Core/Exceptions/DatabaseNotFoundException";
-import { Dialects } from "./Dialect/Dialects";
 import { DialectContract } from "./Dialect/DialectContract";
+import { DatabaseContract } from "./Contracts/DatabaseContract";
 
 class DatabaseFactory {
   /**
@@ -35,12 +35,12 @@ class DatabaseFactory {
    * Make a database instance for the given database
    * 
    * @param {string} databaseName 
-   * @returns {}
+   * @returns {DatabaseContract}
    * 
    * @throws {DatabaseNotFoundException}
    * @throws {DatabaseDialectNotFoundException}
    */
-  public make(databaseName: string) {
+  public make(databaseName: string): DatabaseContract {
     const databaseConfigKey = DatabaseFactory.CONFIG_PREFIX + '.' + databaseName;
 
     // No database found within the config - @throw {DatabaseNotFoundException}
@@ -50,10 +50,12 @@ class DatabaseFactory {
 
     // We've got the database config
     const databaseConfig = this.configReader.get<DatabaseConfig>(databaseConfigKey)
-    const dialect = this.databaseDialectFactory(databaseConfig.dialect);
+    const dialect = <DialectContract> this.databaseDialectFactory(databaseConfig.dialect);
+
+    return {
+      dialect
+    }
   }
-
-
 }
 
 export { DatabaseFactory }
