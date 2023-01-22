@@ -21,7 +21,6 @@ class API {
    */
   public async buildFromTableDefintion(options: BuildFromTableDefinitionOptions): Promise<boolean> {
     const command = <BuildFromTableDefinitionCommandContract> this.commandFactory(Commands.BUILD_FROM_TABLE_DEFINITION);
-
     const resolvedOptions = await command.resolveOptions(options);
 
     console.log(resolvedOptions);

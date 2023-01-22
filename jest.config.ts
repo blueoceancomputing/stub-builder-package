@@ -98,6 +98,8 @@ const config: Config.InitialOptions = {
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
   // modulePathIgnorePatterns: [],
 
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+
   // Activates notifications for test results
   // notify: false,
 
@@ -161,7 +163,7 @@ const config: Config.InitialOptions = {
   // ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
-  testPathIgnorePatterns: ['/node_modules/', '/config/'],
+  testPathIgnorePatterns: ['/node_modules/', '/config/', '/dist/'],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
   // testRegex: [],
