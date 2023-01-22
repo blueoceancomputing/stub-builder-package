@@ -1,0 +1,35 @@
+{
+  "extends": "@tsconfig/node16/tsconfig.json",
+  "ts-node": {
+    // these options are overrides used only by ts-node
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
+  "compilerOptions": {
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "lib": ["esnext"],
+    "moduleResolution": "node",
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
+    "declaration": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    "target": "esnext",
+    "baseUrl": ".",
+    // "resolveJsonModule": true,
+    "plugins": [
+        {
+            "transform": "ts-auto-mock/transformer",
+            "cacheBetweenTests": false
+        }
+    ],
+    "paths": {
+        "@Core/*": ["./src/Core/*"],
+        "@Modules/*": ["./src/Modules/*"]
+    },
+  },
+  "include": ["src", "./config"],
+  "exclude": ["node_modules"],
+}
