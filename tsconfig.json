@@ -26,9 +26,13 @@
         }
     ],
     "paths": {
+        "@Container/*": ["./src/Container/*"],
         "@Core/*": ["./src/Core/*"],
         "@Modules/*": ["./src/Modules/*"]
     },
+    "types": ["reflect-metadata", "node"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["src", "./config"],
   "exclude": ["node_modules"],

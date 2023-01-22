@@ -1,4 +1,4 @@
-interface CommandContract<TInputOptions, TResolvedOptions = TInputOptions> {
+interface CommandContract<TInputOptions = {}, TResolvedOptions = TInputOptions> {
   /**
    * Resolves our input arguments that are being passed though
    * Will throw an Exception if failed to resolve our options

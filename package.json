@@ -13,6 +13,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
+    "dev": "yarn run build && node dist/entrypoint.js",
     "postinstall": "link-module-alias"
   },
   "devDependencies": {
@@ -27,7 +28,14 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "link-module-alias": "^1.2.0"
-  }
-
+    "inversify": "^6.0.1",
+    "link-module-alias": "^1.2.0",
+    "reflect-metadata": "^0.1.13"
+  },
+  "_moduleAliases": {
+    "@Container": "./dist/Container",
+    "@Core": "./dist/Core",
+    "@Modules": "./dist/Modules"
+  },
+  "_moduleAliasIgnoreWarning": true
 }
