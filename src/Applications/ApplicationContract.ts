@@ -1,0 +1,5 @@
+interface ApplicationContract {
+
+}
+
+export { ApplicationContract }

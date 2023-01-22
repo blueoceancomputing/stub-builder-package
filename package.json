@@ -19,6 +19,7 @@
   "devDependencies": {
     "@jest/types": "28",
     "@types/jest": "^28.1.6",
+    "@types/lodash": "^4.14.191",
     "jest": "^28.0.0",
     "jest-ts-auto-mock": "^2.1.0",
     "ts-auto-mock": "^3.6.2",
@@ -30,9 +31,11 @@
   "dependencies": {
     "inversify": "^6.0.1",
     "link-module-alias": "^1.2.0",
+    "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13"
   },
   "_moduleAliases": {
+    "@Applications": "./dist/Applications",
     "@Container": "./dist/Container",
     "@Core": "./dist/Core",
     "@Modules": "./dist/Modules"

@@ -7,7 +7,7 @@ interface CommandContract<TInputOptions = {}, TResolvedOptions = TInputOptions> 
    * @return {Promise<TResolvedOptions>}
    * @throws {OptionValidationException}
    */
-   resolveOptions(...options: Array<unknown>): Promise<TResolvedOptions>
+   resolveOptions(options: TInputOptions): Promise<TResolvedOptions>
 }
 
 export { CommandContract }

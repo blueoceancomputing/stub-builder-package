@@ -1,4 +1,5 @@
-import { injectable } from 'inversify';
+import { inject, injectable, interfaces } from 'inversify';
+import { ApplicationContract } from 'src/Applications/ApplicationContract';
 import { CommandContract } from './CommandContract'
 import {
   BuildFromDatabaseTableDefintionOptions as Options,
@@ -10,11 +11,22 @@ type BuildFromTableDefinitionCommandContract = CommandContract<Options, Resolved
 @injectable()
 class BuildFromTableDefinitionCommand implements CommandContract<Options, ResolvedOptions> {
   /**
+   * @var {interfaces.Factory<ApplicationContract>}
+   */
+  private applicationFactory: interfaces.Factory<ApplicationContract>;
+
+  public constructor(
+    @inject('Factory<Application>') applicationFactory: interfaces.Factory<ApplicationContract>,
+  ) {
+    this.applicationFactory = applicationFactory
+  }
+
+  /**
    * @inheritdoc
    */
-  public async resolveOptions(...options: Array<any>): Promise<ResolvedOptions> {
+  public async resolveOptions(options: Options): Promise<ResolvedOptions> {
     return {
-      
+      application: <ApplicationContract> this.applicationFactory(options.application)
     };
   }
 }

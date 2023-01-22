@@ -9,10 +9,15 @@ const ApiBindings = new ContainerModule((bind) => {
   require('./ApiBindings')(bind);
 });
 
+const ApplicationBindings = new ContainerModule((bind) => {
+  require('../Applications/Bindings')(bind);
+});
+
 // Dynamic bindings
 const bindings: Array<ContainerModule> = [
   ApiBindings,
-  ModuleBindings
+  ApplicationBindings,
+  ModuleBindings,
 ]
 
 for (const binding of bindings) {

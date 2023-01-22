@@ -26,6 +26,7 @@
         }
     ],
     "paths": {
+        "@Applications/*": ["./src/Applications/*"],
         "@Container/*": ["./src/Container/*"],
         "@Core/*": ["./src/Core/*"],
         "@Modules/*": ["./src/Modules/*"]
