@@ -1,9 +1,11 @@
 import { InformationSchemaColumn } from "Core/Repository/InformationSchemaRepository.types";
+import { injectable } from "inversify";
 import { DataType } from "Modules/Entities/DataTypes/DataType";
 import { DataTypeContract } from "Modules/Entities/DataTypes/DataTypeContract";
 import { LengthDataType } from "Modules/Entities/DataTypes/LengthDataType";
 import { DataTypeMatcher } from "./DataTypeMatcher";
 
+@injectable()
 class StringDataTypeMatcher extends DataTypeMatcher {
   /**
    * All the matchable data types

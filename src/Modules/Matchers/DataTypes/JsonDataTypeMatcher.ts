@@ -1,6 +1,8 @@
+import { injectable } from "inversify";
 import { DataType } from "Modules/Entities/DataTypes/DataType";
 import { StringDataTypeMatcher } from "./StringDataTypeMatcher";
 
+@injectable()
 class JsonDataTypeMatcher extends StringDataTypeMatcher {
   /**
    * All the matchable data types

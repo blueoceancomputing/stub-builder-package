@@ -1,8 +1,10 @@
 import { InformationSchemaColumn } from "Core/Repository/InformationSchemaRepository.types";
+import { injectable } from "inversify";
 import { DataType } from "Modules/Entities/DataTypes/DataType";
 import { DataTypeContract } from "Modules/Entities/DataTypes/DataTypeContract";
 import { Matcher } from "../Matcher";
 
+@injectable()
 abstract class DataTypeMatcher implements Matcher<InformationSchemaColumn, DataTypeContract> {
   /**
    * All the matchable data types

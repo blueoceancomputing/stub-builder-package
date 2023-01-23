@@ -1,10 +1,12 @@
 import { InformationSchemaColumn } from "Core/Repository/InformationSchemaRepository.types";
+import { injectable } from "inversify";
 import { fill } from "lodash";
 import { DataType } from "Modules/Entities/DataTypes/DataType";
 import { DataTypeContract } from "Modules/Entities/DataTypes/DataTypeContract";
 import { NumericalDateType } from "Modules/Entities/DataTypes/NumericalDateType";
 import { DataTypeMatcher } from "./DataTypeMatcher";
 
+@injectable()
 abstract class NumericDataTypeMatcher extends DataTypeMatcher {
   /**
    * @inheritdoc
