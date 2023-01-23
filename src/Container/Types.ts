@@ -13,6 +13,9 @@ export default {
   DataTypeMatcher: Symbol.for('DataTypeMatcher'),
   RelationshipMatcher: Symbol.for('RelationshipMatcher'),
 
+  // Modules/Processors
+  TableProcessor: Symbol.for('TableProcessor'),
+
   // Modules/Transformers
   ColumnTransformer: Symbol.for('ColumnTransformer'),
   DataTypeTransformer: Symbol.for('DataTypeTransformer'),

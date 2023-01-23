@@ -6,9 +6,11 @@ import { DatabaseFactory } from 'Core/Database/DatabaseFactory';
 import Types from 'Container/Types';
 import { DatabaseContract } from 'Core/Database/Contracts/DatabaseContract';
 import { InformationSchemaRepository } from 'Core/Repository/InformationSchemaRepository';
-import { InformationSchemaColumn } from 'Core/Repository/InformationSchemaRepository.types';
 import container from 'Container/Container';
 import { DataTypeTransformer } from 'Modules/Transformers/DataTypeTransformer';
+import { RelationshipTransformer } from 'Modules/Transformers/RelationshipTransformer';
+import { ColumnTransformer } from 'Modules/Transformers/ColumnTransformer';
+import { TableProcessor } from 'Modules/Processors/TableProcessor';
 
 @injectable()
 class API {
@@ -41,17 +43,17 @@ class API {
     const handle = await database.dialect.connect(database.config);
     const informationSchemaRepository = new InformationSchemaRepository(handle);
 
-    const amazonPreferencesColumns = await informationSchemaRepository.getTableColumns('hubpic_ebayorders');
-    const amazonPreferencesColumn: InformationSchemaColumn = amazonPreferencesColumns.results[0]
 
-    const dataTypeTransformer = container.get<DataTypeTransformer>(Types.DataTypeTransformer);
-    const transformedDataType = amazonPreferencesColumns.results.map(
-      (column) => dataTypeTransformer.transform(column)
-    )
-
-
-    console.log(transformedDataType)
+    // Testing the column datatype transforming
+    const tableProcessor = container.get<TableProcessor>(Types.TableProcessor);
+    const table = await tableProcessor.process({
+      informationSchemaRepository,
+      databaseName: 'huboo',
+      tableName: 'hubpic_ebayorders'
+    })
     
+    console.log(table);
+
     return true;
   }
 }

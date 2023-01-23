@@ -5,9 +5,8 @@ import { QueryResult } from "Core/Database/Query/QueryResult";
 import { injectable } from "inversify";
 import { InformationSchemaColumn, InformationSchemaKeyColumnUsage, InformationSchemaTable } from "./InformationSchemaRepository.types";
 import { Repository } from "./Repository";
-import { Dictionary } from "./types";
 
-class InformationSchemaRepository<TEntity extends Dictionary, TPersistence extends Dictionary = TEntity> extends Repository<TEntity, TPersistence> {
+class InformationSchemaRepository extends Repository<any> {
   /**
    * @param {DatabaseHandle} handle 
    */
