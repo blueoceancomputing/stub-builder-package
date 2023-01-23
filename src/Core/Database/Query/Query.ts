@@ -1,0 +1,5 @@
+interface Query {
+
+}
+
+export { Query };
