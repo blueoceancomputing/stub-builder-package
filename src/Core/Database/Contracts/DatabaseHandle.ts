@@ -1,0 +1,5 @@
+interface DatabaseHandle {
+
+}
+
+export { DatabaseHandle }

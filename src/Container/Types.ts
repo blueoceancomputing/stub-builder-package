@@ -7,4 +7,5 @@ export default {
   // Core/Database
   DatabaseDialect: Symbol.for('DatabaseDialect'),
   DatabaseFactory: Symbol.for('DatabaseFactory'),
+  DatabaseHandleFactory: Symbol.for('DatabaseHandleFactory'),
 };
