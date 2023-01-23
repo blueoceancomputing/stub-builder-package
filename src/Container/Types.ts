@@ -1,8 +1,11 @@
 export default {
   Api: Symbol.for('Api'),
-  Application: Symbol.for('Application'),
   Command: Symbol.for('Command'),
   Config: Symbol.for('Config'),
+
+  // Applications
+  Application: Symbol.for('Application'),
+  ApplicationFactory: Symbol.for('ApplicationFactory'),
 
   // Core/Database
   DatabaseDialect: Symbol.for('DatabaseDialect'),

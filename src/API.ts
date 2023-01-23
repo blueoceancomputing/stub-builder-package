@@ -11,6 +11,7 @@ import { DataTypeTransformer } from 'Modules/Transformers/DataTypeTransformer';
 import { RelationshipTransformer } from 'Modules/Transformers/RelationshipTransformer';
 import { ColumnTransformer } from 'Modules/Transformers/ColumnTransformer';
 import { TableProcessor } from 'Modules/Processors/TableProcessor';
+import { ApplicationFactory } from 'Applications/ApplicationFactory';
 
 @injectable()
 class API {
@@ -24,12 +25,19 @@ class API {
    */
   private databaseFactory: DatabaseFactory;
 
+  /**
+   * @var {ApplicationFactory}
+   */
+  private applicationFactory: ApplicationFactory;
+
   public constructor(
     @inject('Factory<Command>') commandFactory: interfaces.Factory<CommandContract>,
     @inject(Types.DatabaseFactory) databaseFactory: DatabaseFactory,
+    @inject(Types.ApplicationFactory) applicationFactory: ApplicationFactory,
   ) {
     this.commandFactory = commandFactory
     this.databaseFactory = databaseFactory
+    this.applicationFactory = applicationFactory
   }
 
   /**
@@ -39,20 +47,28 @@ class API {
     const command = <BuildFromTableDefinitionCommandContract> this.commandFactory(Commands.BUILD_FROM_TABLE_DEFINITION);
     const resolvedOptions = await command.resolveOptions(options);
 
-    const database: DatabaseContract = this.databaseFactory.make(options.databaseName);
-    const handle = await database.dialect.connect(database.config);
-    const informationSchemaRepository = new InformationSchemaRepository(handle);
+    /**
+     * Application related testing
+     */
+    const application = this.applicationFactory.make(options.applicationName);
+    console.log(application)
 
+    // /**
+    //  * Database related testing
+    //  */
+    // const database: DatabaseContract = this.databaseFactory.make(options.databaseName);
+    // const handle = await database.dialect.connect(database.config);
+    // const informationSchemaRepository = new InformationSchemaRepository(handle);
 
-    // Testing the column datatype transforming
-    const tableProcessor = container.get<TableProcessor>(Types.TableProcessor);
-    const table = await tableProcessor.process({
-      informationSchemaRepository,
-      databaseName: options.databaseName,
-      tableName: 'hubpic_ebayorders'
-    })
+    // // Testing the column datatype transforming
+    // const tableProcessor = container.get<TableProcessor>(Types.TableProcessor);
+    // const table = await tableProcessor.process({
+    //   informationSchemaRepository,
+    //   databaseName: options.databaseName,
+    //   tableName: 'hubpic_ebayorders'
+    // })
     
-    console.log(table);
+    // console.log(table);
 
     return true;
   }

@@ -6,7 +6,7 @@ import Types from './Container/Types'
 
 const api = container.get<API>(Types.Api);
 
-api.buildFromTableDefintion({ application: 'hubseeder', databaseName: 'huboo' })
+api.buildFromTableDefintion({ applicationName: 'courier_service', databaseName: 'huboo' })
   .then((result) => {
     console.log(result)
     process.exit(0)
