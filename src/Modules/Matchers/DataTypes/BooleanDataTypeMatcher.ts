@@ -3,7 +3,9 @@ import { DataType } from "Modules/Entities/DataTypes/DataType";
 import { DataTypeContract } from "Modules/Entities/DataTypes/DataTypeContract";
 import { BooleanDataType } from "Modules/Entities/DataTypes/BooleanDataType";
 import { DataTypeMatcher } from "./DataTypeMatcher";
+import { injectable } from "inversify";
 
+@injectable()
 class BooleanDataTypeMatcher extends DataTypeMatcher {
   /**
    * All the matchable data types
