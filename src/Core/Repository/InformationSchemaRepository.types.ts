@@ -1,4 +1,6 @@
-export interface InformationSchemaTable {
+import { Dictionary } from "./types";
+
+export interface InformationSchemaTable extends Dictionary {
   TABLE_CATALOG: string | null;
   TABLE_SCHEMA: string | null;
   TABLE_NAME: string | null;

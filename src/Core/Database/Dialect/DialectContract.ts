@@ -6,9 +6,9 @@ interface DialectContract {
    * Connects and instatiates a handle to the database
    * 
    * @param {DatabaseConfig} config
-   * @return {DatabaseHandle}
+   * @return {Promise<DatabaseHandle>}
    */
-  connect(config: DatabaseConfig): DatabaseHandle;
+  connect(config: DatabaseConfig): Promise<DatabaseHandle>;
 }
 
 export { DialectContract }

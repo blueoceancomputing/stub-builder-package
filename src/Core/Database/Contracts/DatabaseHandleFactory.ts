@@ -6,9 +6,9 @@ interface DatabaseHandleFactory {
    * Instantiate a new handle to the database
    * 
    * @param {DatabaseConfig} config
-   * @returns {DatabaseHandle}
+   * @returns {Promise<DatabaseHandle>}
    */
-  make(config: DatabaseConfig): DatabaseHandle
+  make(config: DatabaseConfig): Promise<DatabaseHandle>
 }
 
 export { DatabaseHandleFactory }

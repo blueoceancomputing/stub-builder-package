@@ -21,7 +21,7 @@ class MysqlDialect implements DialectContract {
   /**
    * @inheritdoc
    */
-  public connect(config: DatabaseConfig): DatabaseHandle {
+  public async connect(config: DatabaseConfig): Promise<DatabaseHandle> {
     const databaseHandleFactory = <DatabaseHandleFactory> this.databaseHandleFactoryFactory(Dialects.MYSQL)
     return databaseHandleFactory.make(config)
   }
