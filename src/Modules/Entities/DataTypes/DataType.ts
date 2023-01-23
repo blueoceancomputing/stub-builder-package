@@ -1,0 +1,5 @@
+interface DataType {
+
+}
+
+export { DataType }
