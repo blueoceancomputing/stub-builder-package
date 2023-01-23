@@ -4,6 +4,7 @@ import { BuildFromTableDefinitionCommandContract, BuildFromTableDefinitionOption
 import { Commands } from 'Modules/Commands/Commands';
 import { DatabaseFactory } from 'Core/Database/DatabaseFactory';
 import Types from 'Container/Types';
+import { DatabaseContract } from 'Core/Database/Contracts/DatabaseContract';
 
 @injectable()
 class API {
@@ -32,9 +33,8 @@ class API {
     const command = <BuildFromTableDefinitionCommandContract> this.commandFactory(Commands.BUILD_FROM_TABLE_DEFINITION);
     const resolvedOptions = await command.resolveOptions(options);
 
-    const database = this.databaseFactory.make('huboo');
-
-    console.log(database);
+    const database: DatabaseContract = this.databaseFactory.make('huboo');
+    const handle = await database.dialect.connect(database.config);
 
     return true;
   }

@@ -23,7 +23,7 @@ class MysqlDialect implements DialectContract {
    */
   public async connect(config: DatabaseConfig): Promise<DatabaseHandle> {
     const databaseHandleFactory = <DatabaseHandleFactory> this.databaseHandleFactoryFactory(Dialects.MYSQL)
-    return databaseHandleFactory.make(config)
+    return await databaseHandleFactory.make(config)
   }
 }
 

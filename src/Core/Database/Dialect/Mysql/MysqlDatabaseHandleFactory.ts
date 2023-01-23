@@ -21,9 +21,9 @@ class MysqlDatabaseHandleFactory implements DatabaseHandleFactory {
    * @param {DatabaseConfig} config
    * @returns {Promise<Connection>}
    */
-  private createConnection(config: DatabaseConfig): Promise<Connection> {
+  private async createConnection(config: DatabaseConfig): Promise<Connection> {
     const connectionOptions = this.buildConnectionOptions(config);
-    return mysql.createConnection(connectionOptions);
+    return await mysql.createConnection(connectionOptions);
   }
 
   /**
