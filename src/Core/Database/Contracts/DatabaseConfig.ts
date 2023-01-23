@@ -1,4 +1,5 @@
 interface DatabaseConnectionConfig {
+  database: string;
   host: string;
   port: number;
   user: string;
