@@ -49,6 +49,7 @@ describe('Core/Database/DatabaseFactory', () => {
     const database = databaseFactory.make(databaseName)
 
     expect(database).toHaveProperty('dialect');
+    expect(database).toHaveProperty('config');
   })
 });
 

@@ -49,11 +49,12 @@ class DatabaseFactory {
     }
 
     // We've got the database config
-    const databaseConfig = this.configReader.get<DatabaseConfig>(databaseConfigKey)
-    const dialect = <DialectContract> this.databaseDialectFactory(databaseConfig.dialect);
+    const config = this.configReader.get<DatabaseConfig>(databaseConfigKey)
+    const dialect = <DialectContract> this.databaseDialectFactory(config.dialect);
 
     return {
-      dialect
+      dialect,
+      config
     }
   }
 }
