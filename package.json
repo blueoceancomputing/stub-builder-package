@@ -21,6 +21,7 @@
     "@jest/types": "28",
     "@types/config": "^3.3.0",
     "@types/jest": "^29.2.6",
+    "@types/knex": "^0.16.1",
     "@types/lodash": "^4.14.191",
     "jest": "^28.0.0",
     "jest-ts-auto-mock": "^2.1.0",
@@ -33,6 +34,7 @@
   "dependencies": {
     "config": "^3.3.9",
     "inversify": "^6.0.1",
+    "knex": "^2.4.2",
     "link-module-alias": "^1.2.0",
     "lodash": "^4.17.21",
     "reflect-metadata": "^0.1.13"
