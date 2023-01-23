@@ -1,7 +1,7 @@
-import { DataTypes } from "./DataTypes";
+import { DataType } from "./DataType";
 
 interface NumericalDateType {
-  readonly dateType: DataTypes;
+  readonly dateType: DataType;
   readonly minValue: number;
   readonly maxValue: number;
   readonly precision: number;

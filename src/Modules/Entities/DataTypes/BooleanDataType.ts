@@ -1,7 +1,7 @@
-import { DataTypes } from "./DataTypes";
+import { DataType } from "./DataType";
 
 interface BooleanDataType {
-  readonly dateType: DataTypes;
+  readonly dateType: DataType;
   readonly maxLength: number;
 }
 
