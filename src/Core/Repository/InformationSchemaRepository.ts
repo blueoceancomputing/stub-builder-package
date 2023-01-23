@@ -3,7 +3,7 @@ import { MysqlDatabaseHandle } from "Core/Database/Dialect/Mysql/MysqlDatabaseHa
 import { MysqlQuery } from "Core/Database/Dialect/Mysql/MysqlQuery";
 import { QueryResult } from "Core/Database/Query/QueryResult";
 import { injectable } from "inversify";
-import { InformationSchemaTable } from "./InformationSchemaRepository.types";
+import { InformationSchemaColumn, InformationSchemaTable } from "./InformationSchemaRepository.types";
 import { Repository } from "./Repository";
 import { Dictionary } from "./types";
 
@@ -27,11 +27,33 @@ class InformationSchemaRepository<TEntity extends Dictionary, TPersistence exten
         FROM information_schema.TABLES
         WHERE TABLE_SCHEMA = :databaseName
       `,
-      {
-        databaseName: this.handle.config.connection.database
-      }
+      { databaseName: this.handle.config.connection.database }
     )
     return this.handle.run<InformationSchemaTable>(query);
+  }
+
+  /**
+   * Get's all the tables columns for the handles database and given table name
+   * 
+   * @param {string} tableName
+   * 
+   * @returns {Promise<QueryResult<InformationSchemaColumn>>}
+   */
+  public getTableColumns (tableName: string): Promise<QueryResult<InformationSchemaColumn>> {
+    const query = new MysqlQuery(
+      `
+        SELECT *
+        FROM information_schema.COLUMNS
+        WHERE TABLE_SCHEMA = :databaseName
+        AND TABLE_NAME = :tableName
+        ORDER BY ORDINAL_POSITION
+      `,
+      {
+        databaseName: this.handle.config.connection.database,
+        tableName
+      }
+    )
+    return this.handle.run<InformationSchemaColumn>(query);
   }
 }
 

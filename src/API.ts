@@ -38,8 +38,9 @@ class API {
     const handle = await database.dialect.connect(database.config);
     const informationSchemaRepository = new InformationSchemaRepository(handle);
 
-    const tables = await informationSchemaRepository.getTables();
-    console.log(tables);
+    const amazonPreferencesColumns = await informationSchemaRepository.getTableColumns('amazon_preferences');
+
+    console.log(amazonPreferencesColumns)
 
     return true;
   }
