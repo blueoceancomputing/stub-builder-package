@@ -14,6 +14,7 @@ export default {
   RelationshipMatcher: Symbol.for('RelationshipMatcher'),
 
   // Modules/Transformers
+  ColumnTransformer: Symbol.for('ColumnTransformer'),
   DataTypeTransformer: Symbol.for('DataTypeTransformer'),
   RelationshipTransformer: Symbol.for('RelationshipTransformer'),
 };
