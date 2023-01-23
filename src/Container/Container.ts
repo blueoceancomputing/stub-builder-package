@@ -5,9 +5,8 @@ import ModuleBindings from 'Modules/Bindings';
 
 const container = new Container();
 
-// Api Bindings
-const ApiBindings = new ContainerModule((bind) => {
-  require('./ApiBindings')(bind);
+const MiscBindings = new ContainerModule((bind) => {
+  require('./MiscBindings')(bind);
 });
 
 const ApplicationBindings = new ContainerModule((bind) => {
@@ -16,7 +15,7 @@ const ApplicationBindings = new ContainerModule((bind) => {
 
 // Dynamic bindings
 const bindings: Array<ContainerModule> = [
-  ApiBindings,
+  MiscBindings,
   ApplicationBindings,
   CoreBindings,
   ModuleBindings,

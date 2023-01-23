@@ -13,7 +13,7 @@ class MysqlDialect implements DialectContract {
   private databaseHandleFactoryFactory: interfaces.Factory<DatabaseHandleFactory>;
 
   public constructor(
-    @inject('Factory<DatabaseHandle>') databaseHandleFactoryFactory: interfaces.Factory<DatabaseHandleFactory>,
+    @inject('Factory<DatabaseHandleFactory>') databaseHandleFactoryFactory: interfaces.Factory<DatabaseHandleFactory>,
   ) {
     this.databaseHandleFactoryFactory = databaseHandleFactoryFactory
   }

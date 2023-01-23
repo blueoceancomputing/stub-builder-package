@@ -1,4 +1,4 @@
-import { inject, interfaces } from "inversify";
+import { inject, injectable, interfaces } from "inversify";
 import { has, IConfig } from 'config'
 import Types from "Container/Types";
 import { DatabaseConfig } from "Core/Database/Contracts/DatabaseConfig";
@@ -6,6 +6,7 @@ import { DatabaseNotFoundException } from "Core/Exceptions/DatabaseNotFoundExcep
 import { DialectContract } from "./Dialect/DialectContract";
 import { DatabaseContract } from "./Contracts/DatabaseContract";
 
+@injectable()
 class DatabaseFactory {
   /**
    * @var {string} CONFIG_PREFIX
