@@ -5,6 +5,7 @@ import { Commands } from 'Modules/Commands/Commands';
 import { DatabaseFactory } from 'Core/Database/DatabaseFactory';
 import Types from 'Container/Types';
 import { DatabaseContract } from 'Core/Database/Contracts/DatabaseContract';
+import { InformationSchemaRepository } from 'Core/Repository/InformationSchemaRepository';
 
 @injectable()
 class API {
@@ -35,6 +36,10 @@ class API {
 
     const database: DatabaseContract = this.databaseFactory.make('huboo');
     const handle = await database.dialect.connect(database.config);
+    const informationSchemaRepository = new InformationSchemaRepository(handle);
+
+    const tables = await informationSchemaRepository.getTables();
+    console.log(tables);
 
     return true;
   }

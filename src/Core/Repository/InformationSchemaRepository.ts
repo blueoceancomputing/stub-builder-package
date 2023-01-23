@@ -7,12 +7,11 @@ import { InformationSchemaTable } from "./InformationSchemaRepository.types";
 import { Repository } from "./Repository";
 import { Dictionary } from "./types";
 
-@injectable()
 class InformationSchemaRepository<TEntity extends Dictionary, TPersistence extends Dictionary = TEntity> extends Repository<TEntity, TPersistence> {
   /**
-   * @param {MysqlDatabaseHandle} handle 
+   * @param {DatabaseHandle} handle 
    */
-  public constructor (handle: MysqlDatabaseHandle) {
+  public constructor (handle: DatabaseHandle) {
     super(handle)
   }
 
