@@ -39,9 +39,9 @@
     "reflect-metadata": "^0.1.13"
   },
   "_moduleAliases": {
-    "Applications": "./src/Applications",
-    "Container": "./src/Container",
-    "Core": "./src/Core",
-    "Modules": "./src/Modules"
+    "Applications": "./dist/Applications",
+    "Container": "./dist/Container",
+    "Core": "./dist/Core",
+    "Modules": "./dist/Modules"
   }
 }
