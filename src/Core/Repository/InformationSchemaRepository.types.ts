@@ -47,3 +47,18 @@ export interface InformationSchemaColumn extends Dictionary {
   GENERATION_EXPRESSION: string;
   SRS_ID: number | null;
 }
+
+export interface InformationSchemaKeyColumnUsage extends Dictionary {
+  CONSTRAINT_CATALOG: string | null;
+  CONSTRAINT_SCHEMA: string | null;
+  CONSTRAINT_NAME: string | null;
+  TABLE_CATALOG: string | null;
+  TABLE_SCHEMA: string | null;
+  TABLE_NAME: string | null;
+  COLUMN_NAME: string | null;
+  ORDINAL_POSITION: number;
+  POSITION_IN_UNIQUE_CONSTRAINT: number | null;
+  REFERENCED_TABLE_SCHEMA: string | null;
+  REFERENCED_TABLE_NAME: string | null;
+  REFERENCED_COLUMN_NAME: string | null;
+}

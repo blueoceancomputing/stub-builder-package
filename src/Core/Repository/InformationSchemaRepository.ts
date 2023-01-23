@@ -3,7 +3,7 @@ import { MysqlDatabaseHandle } from "Core/Database/Dialect/Mysql/MysqlDatabaseHa
 import { MysqlQuery } from "Core/Database/Dialect/Mysql/MysqlQuery";
 import { QueryResult } from "Core/Database/Query/QueryResult";
 import { injectable } from "inversify";
-import { InformationSchemaColumn, InformationSchemaTable } from "./InformationSchemaRepository.types";
+import { InformationSchemaColumn, InformationSchemaKeyColumnUsage, InformationSchemaTable } from "./InformationSchemaRepository.types";
 import { Repository } from "./Repository";
 import { Dictionary } from "./types";
 
@@ -11,7 +11,7 @@ class InformationSchemaRepository<TEntity extends Dictionary, TPersistence exten
   /**
    * @param {DatabaseHandle} handle 
    */
-  public constructor (handle: DatabaseHandle) {
+  public constructor(handle: DatabaseHandle) {
     super(handle)
   }
 
@@ -20,7 +20,7 @@ class InformationSchemaRepository<TEntity extends Dictionary, TPersistence exten
    * 
    * @returns {Promise<QueryResult<InformationSchemaTable>>}
    */
-  public getTables (): Promise<QueryResult<InformationSchemaTable>> {
+  public getTables(): Promise<QueryResult<InformationSchemaTable>> {
     const query = new MysqlQuery(
       `
         SELECT *
@@ -39,7 +39,7 @@ class InformationSchemaRepository<TEntity extends Dictionary, TPersistence exten
    * 
    * @returns {Promise<QueryResult<InformationSchemaColumn>>}
    */
-  public getTableColumns (tableName: string): Promise<QueryResult<InformationSchemaColumn>> {
+  public getTableColumns(tableName: string): Promise<QueryResult<InformationSchemaColumn>> {
     const query = new MysqlQuery(
       `
         SELECT *
@@ -54,6 +54,30 @@ class InformationSchemaRepository<TEntity extends Dictionary, TPersistence exten
       }
     )
     return this.handle.run<InformationSchemaColumn>(query);
+  }
+
+  /**
+   * Get's all the tables key column usages for the handles database and given table name
+   * 
+   * @param {string} tableName
+   * 
+   * @returns {Promise<QueryResult<InformationSchemaKeyColumnUsage>>}
+   */
+  public getTableKeyColumnUsage(tableName: string): Promise<QueryResult<InformationSchemaKeyColumnUsage>> {
+    const query = new MysqlQuery(
+      `
+        SELECT *
+        FROM information_schema.KEY_COLUMN_USAGE
+        WHERE TABLE_SCHEMA = :databaseName
+        AND TABLE_NAME = :tableName
+        ORDER BY ORDINAL_POSITION
+      `,
+      {
+        databaseName: this.handle.config.connection.database,
+        tableName
+      }
+    )
+    return this.handle.run<InformationSchemaKeyColumnUsage>(query);
   }
 }
 
