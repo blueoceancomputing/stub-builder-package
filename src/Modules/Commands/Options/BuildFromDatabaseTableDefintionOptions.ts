@@ -1,6 +1,6 @@
 interface BuildFromDatabaseTableDefintionOptions {
   application: string;
-  database: string;
+  databaseName: string;
   tableName?: string | undefined;
 }
 

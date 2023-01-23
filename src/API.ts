@@ -39,7 +39,7 @@ class API {
     const command = <BuildFromTableDefinitionCommandContract> this.commandFactory(Commands.BUILD_FROM_TABLE_DEFINITION);
     const resolvedOptions = await command.resolveOptions(options);
 
-    const database: DatabaseContract = this.databaseFactory.make('huboo');
+    const database: DatabaseContract = this.databaseFactory.make(options.databaseName);
     const handle = await database.dialect.connect(database.config);
     const informationSchemaRepository = new InformationSchemaRepository(handle);
 
@@ -48,7 +48,7 @@ class API {
     const tableProcessor = container.get<TableProcessor>(Types.TableProcessor);
     const table = await tableProcessor.process({
       informationSchemaRepository,
-      databaseName: 'huboo',
+      databaseName: options.databaseName,
       tableName: 'hubpic_ebayorders'
     })
     
