@@ -1,4 +1,4 @@
-import { StubBuilderConfig } from "src/Stubber/StubBuilderConfig";
+import { StubBuilderConfig } from "Stubber/StubBuilderConfig";
 
 interface ApplicationConfig {
   applicationDirectory: string;

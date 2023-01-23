@@ -29,7 +29,8 @@
         "Applications/*": ["./src/Applications/*"],
         "Container/*": ["./src/Container/*"],
         "Core/*": ["./src/Core/*"],
-        "Modules/*": ["./src/Modules/*"]
+        "Modules/*": ["./src/Modules/*"],
+        "Stubber/*": ["./src/Stubber/*"],
     },
     "types": ["reflect-metadata", "node"],
     "experimentalDecorators": true,

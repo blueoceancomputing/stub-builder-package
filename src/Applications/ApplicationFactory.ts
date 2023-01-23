@@ -1,8 +1,9 @@
 import { IConfig } from "config";
 import Types from "Container/Types";
 import { inject, injectable } from "inversify";
-import StubBuilder from "src/Stubber/StubBuilder";
-import { StubBuilderConfig } from "src/Stubber/StubBuilderConfig";
+import StubBuilder from "Stubber/StubBuilder";
+import { StubBuilderConfig } from "Stubber/StubBuilderConfig";
+import { StubBuilderFactory } from "Stubber/StubBuilderFactory";
 import { ApplicationConfig } from "./ApplicationConfig";
 import { ApplicationContract } from "./ApplicationContract";
 
@@ -13,10 +14,17 @@ class ApplicationFactory {
    */
   private configReader: IConfig;
 
+  /**
+   * @var {StubBuilderFactory} stubBuilderFactory
+   */
+  private stubBuilderFactory: StubBuilderFactory
+
   public constructor (
-    @inject(Types.Config) configReader: IConfig
+    @inject(Types.Config) configReader: IConfig,
+    @inject(Types.StubBuilderFactory) stubBuilderFactory: StubBuilderFactory
   ) {
     this.configReader = configReader;
+    this.stubBuilderFactory = stubBuilderFactory;
   }
 
   /**
@@ -47,9 +55,7 @@ class ApplicationFactory {
    * @returns {StubBuilder}
    */
   private buildStubBuilder(stubBuilderConfig: StubBuilderConfig): StubBuilder {
-    return {
-
-    }
+    return this.stubBuilderFactory.make(stubBuilderConfig)
   }
 }
 

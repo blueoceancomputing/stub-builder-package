@@ -13,10 +13,15 @@ const ApplicationBindings = new ContainerModule((bind) => {
   require('../Applications/Bindings')(bind);
 });
 
+const StubberBindings = new ContainerModule((bind) => {
+  require('../Stubber/Bindings')(bind);
+});
+
 // Dynamic bindings
 const bindings: Array<ContainerModule> = [
   MiscBindings,
   ApplicationBindings,
+  StubberBindings,
   CoreBindings,
   ModuleBindings,
 ]

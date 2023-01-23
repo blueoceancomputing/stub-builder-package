@@ -93,6 +93,7 @@ const config: Config.InitialOptions = {
     '^Container/(.*)': '<rootDir>/src/Container/$1',
     '^Core/(.*)': '<rootDir>/src/Core/$1',
     '^Modules/(.*)': '<rootDir>/src/Modules/$1',
+    '^Stubber/(.*)': '<rootDir>/src/Stubber/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

@@ -1,4 +1,4 @@
-import StubBuilder from "src/Stubber/StubBuilder";
+import StubBuilder from "Stubber/StubBuilder";
 
 interface ApplicationContract {
   applicationDirectory: string;

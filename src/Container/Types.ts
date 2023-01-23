@@ -23,4 +23,8 @@ export default {
   ColumnTransformer: Symbol.for('ColumnTransformer'),
   DataTypeTransformer: Symbol.for('DataTypeTransformer'),
   RelationshipTransformer: Symbol.for('RelationshipTransformer'),
+
+  // Stubber
+  StubBuilder: Symbol.for('StubBuilder'),
+  StubBuilderFactory: Symbol.for('StubBuilderFactory'),
 };

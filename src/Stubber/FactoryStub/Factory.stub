@@ -1,0 +1,66 @@
+import { injectable } from 'inversify';
+import { Factory as FisheryFactory } from 'fishery';
+import faker from '@faker-js/faker';
+import Factory from '../../Contracts/Factory';
+import Database from '../../Database/Database';
+import RelationshipRecord from '../../Contracts/RelationshipRecord';
+import %%%EntityName%%% from '../../Entities/%%%DatabaseNamePascalCase%%%/%%%EntityName%%%';
+import DateHelper from '../../Helpers/DateHelper';
+import HubooHelper from '../../Helpers/HubooHelper';
+import ProductHelper from '../../Helpers/ProductHelper';
+import SiteHelper from '../../Helpers/SiteHelper';
+
+@injectable()
+class %%%FactoryName%%% implements Factory<%%%EntityName%%%> {
+  /**
+   * References
+   */
+  public static GROUP_NAME = '%%%GroupName%%%';
+  public static DATABASE = Database.%%%DatabaseNameUpperCase%%%;
+  public static TABLE_NAME = '%%%TableName%%%';
+  public static PRIMARY_KEY_COLUMN = '%%%PrimaryKeyColumn%%%';
+
+  /**
+   * @inheritdoc
+   */
+  public groupName: string = %%%FactoryName%%%.GROUP_NAME;
+
+  /**
+   * @inheritdoc
+   */
+  public database: Database = %%%FactoryName%%%.DATABASE;
+
+  /**
+   * @inheritdoc
+   */
+  public tableName: string = %%%FactoryName%%%.TABLE_NAME;
+
+  /**
+   * @inheritdoc
+   */
+  public primaryKeyColumn: string = %%%FactoryName%%%.PRIMARY_KEY_COLUMN;
+
+  /**
+   * The defintion of the factory
+   *
+   * @returns {FisheryFactory<%%%EntityName%%%, any, %%%EntityName%%%>}
+   */
+  public definition(): FisheryFactory<%%%EntityName%%%, any > {
+    return FisheryFactory.define<%%%EntityName%%%>(() => {
+      return {
+%%%FactoryDefinition%%%
+      };
+    });
+  }
+
+  /**
+   * @inheritdoc
+   */
+  public relationships(): Array<RelationshipRecord> {
+    return [
+      %%%FactoryRelationships%%%
+    ];
+  }
+}
+
+export default %%%FactoryName%%%;
