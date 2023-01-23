@@ -1,4 +1,4 @@
-import { Dictionary } from "@Core/Repository/types";
+import { Dictionary } from "Core/Repository/types";
 import { Query } from "../Query/Query";
 import { QueryResult } from "../Query/QueryResult";
 import { DatabaseConfig } from "./DatabaseConfig";

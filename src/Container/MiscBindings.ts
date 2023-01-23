@@ -1,5 +1,5 @@
 import { interfaces } from 'inversify';
-import Types from '@Container/Types'
+import Types from 'Container/Types'
 import Bind = interfaces.Bind;
 import config, { IConfig } from 'config';
 import { API } from '../API';

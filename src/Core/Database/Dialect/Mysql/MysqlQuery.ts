@@ -1,4 +1,4 @@
-import { Query } from "@Core/Database/Query/Query";
+import { Query } from "Core/Database/Query/Query";
 
 class MysqlQuery implements Query {
   /**

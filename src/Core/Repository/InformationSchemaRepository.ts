@@ -1,7 +1,7 @@
-import { DatabaseHandle } from "@Core/Database/Contracts/DatabaseHandle";
-import { MysqlDatabaseHandle } from "@Core/Database/Dialect/Mysql/MysqlDatabaseHandle";
-import { MysqlQuery } from "@Core/Database/Dialect/Mysql/MysqlQuery";
-import { QueryResult } from "@Core/Database/Query/QueryResult";
+import { DatabaseHandle } from "Core/Database/Contracts/DatabaseHandle";
+import { MysqlDatabaseHandle } from "Core/Database/Dialect/Mysql/MysqlDatabaseHandle";
+import { MysqlQuery } from "Core/Database/Dialect/Mysql/MysqlQuery";
+import { QueryResult } from "Core/Database/Query/QueryResult";
 import { injectable } from "inversify";
 import { InformationSchemaTable } from "./InformationSchemaRepository.types";
 import { Repository } from "./Repository";

@@ -1,7 +1,7 @@
-import { DatabaseConfig } from "@Core/Database/Contracts/DatabaseConfig";
-import { DatabaseHandle } from "@Core/Database/Contracts/DatabaseHandle";
-import { QueryResult } from "@Core/Database/Query/QueryResult";
-import { Dictionary } from "@Core/Repository/types";
+import { DatabaseConfig } from "Core/Database/Contracts/DatabaseConfig";
+import { DatabaseHandle } from "Core/Database/Contracts/DatabaseHandle";
+import { QueryResult } from "Core/Database/Query/QueryResult";
+import { Dictionary } from "Core/Repository/types";
 import { injectable } from "inversify";
 import { Connection } from 'mysql2/promise'
 import { MysqlQuery } from "./MysqlQuery";

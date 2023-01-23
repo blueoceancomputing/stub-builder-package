@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { Container, ContainerModule } from 'inversify';
-import CoreBindings from '@Core/Bindings';
-import ModuleBindings from '@Modules/Bindings';
+import CoreBindings from 'Core/Bindings';
+import ModuleBindings from 'Modules/Bindings';
 
 const container = new Container();
 

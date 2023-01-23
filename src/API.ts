@@ -1,9 +1,9 @@
 import { inject, injectable, interfaces } from 'inversify';
-import { CommandContract } from '@Modules/Commands/CommandContract';
-import { BuildFromTableDefinitionCommandContract, BuildFromTableDefinitionOptions } from '@Modules/Commands/BuildFromTableDefinitionCommand';
-import { Commands } from '@Modules/Commands/Commands';
-import { DatabaseFactory } from '@Core/Database/DatabaseFactory';
-import Types from '@Container/Types';
+import { CommandContract } from 'Modules/Commands/CommandContract';
+import { BuildFromTableDefinitionCommandContract, BuildFromTableDefinitionOptions } from 'Modules/Commands/BuildFromTableDefinitionCommand';
+import { Commands } from 'Modules/Commands/Commands';
+import { DatabaseFactory } from 'Core/Database/DatabaseFactory';
+import Types from 'Container/Types';
 
 @injectable()
 class API {

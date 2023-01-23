@@ -1,6 +1,6 @@
-import { DatabaseConfig } from "@Core/Database/Contracts/DatabaseConfig";
-import { DatabaseHandle } from "@Core/Database/Contracts/DatabaseHandle";
-import { DatabaseHandleFactory } from "@Core/Database/Contracts/DatabaseHandleFactory";
+import { DatabaseConfig } from "Core/Database/Contracts/DatabaseConfig";
+import { DatabaseHandle } from "Core/Database/Contracts/DatabaseHandle";
+import { DatabaseHandleFactory } from "Core/Database/Contracts/DatabaseHandleFactory";
 import { injectable } from "inversify";
 import mysql, { Connection, ConnectionOptions } from 'mysql2/promise'
 import { MysqlDatabaseHandle } from "./MysqlDatabaseHandle";

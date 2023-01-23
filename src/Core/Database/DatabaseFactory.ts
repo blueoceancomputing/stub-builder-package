@@ -1,8 +1,8 @@
 import { inject, interfaces } from "inversify";
 import { has, IConfig } from 'config'
-import Types from "@Container/Types";
-import { DatabaseConfig } from "@Core/Database/Contracts/DatabaseConfig";
-import { DatabaseNotFoundException } from "@Core/Exceptions/DatabaseNotFoundException";
+import Types from "Container/Types";
+import { DatabaseConfig } from "Core/Database/Contracts/DatabaseConfig";
+import { DatabaseNotFoundException } from "Core/Exceptions/DatabaseNotFoundException";
 import { DialectContract } from "./Dialect/DialectContract";
 import { DatabaseContract } from "./Contracts/DatabaseContract";
 

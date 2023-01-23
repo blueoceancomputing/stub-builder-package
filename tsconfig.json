@@ -14,10 +14,10 @@
     // "noUnusedLocals": true,
     // "noUnusedParameters": true,
     "declaration": true,
-    "outDir": "dist",
+    "outDir": "./dist",
     "sourceMap": true,
     "target": "esnext",
-    "baseUrl": ".",
+    "baseUrl": "./src",
     // "resolveJsonModule": true,
     "plugins": [
         {
@@ -26,10 +26,10 @@
         }
     ],
     "paths": {
-        "@Applications/*": ["./src/Applications/*"],
-        "@Container/*": ["./src/Container/*"],
-        "@Core/*": ["./src/Core/*"],
-        "@Modules/*": ["./src/Modules/*"]
+        "Applications/*": ["./Applications/*"],
+        "Container/*": ["./Container/*"],
+        "Core/*": ["./Core/*"],
+        "Modules/*": ["./Modules/*"]
     },
     "types": ["reflect-metadata", "node"],
     "experimentalDecorators": true,

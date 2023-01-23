@@ -1,13 +1,13 @@
 import { describe, expect, it, beforeEach } from '@jest/globals'
-import { DatabaseFactory } from "@Core/Database/DatabaseFactory";
-import { DatabaseNotFoundException } from "@Core/Exceptions/DatabaseNotFoundException";
-import { DatabaseDialectNotFoundException } from "@Core/Exceptions/DatabaseDialectNotFoundException";
+import { DatabaseFactory } from "Core/Database/DatabaseFactory";
+import { DatabaseNotFoundException } from "Core/Exceptions/DatabaseNotFoundException";
+import { DatabaseDialectNotFoundException } from "Core/Exceptions/DatabaseDialectNotFoundException";
 import { MockConfigBuilder } from '../../../Helpers/Config/MockConfigBuilder'
-import { DatabaseConfig } from '@Core/Database/Contracts/DatabaseConfig';
-import { Dialects } from '@Core/Database/Dialect/Dialects';
-import { DialectContract } from '@Core/Database/Dialect/DialectContract';
+import { DatabaseConfig } from 'Core/Database/Contracts/DatabaseConfig';
+import { Dialects } from 'Core/Database/Dialect/Dialects';
+import { DialectContract } from 'Core/Database/Dialect/DialectContract';
 import { interfaces } from 'inversify';
-import container from '@Container/Container';
+import container from 'Container/Container';
 
 const mockConfigBuilder = new MockConfigBuilder();
 const dialectFactory = container.get<interfaces.Factory<DialectContract>>('Factory<DatabaseDialect>');

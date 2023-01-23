@@ -1,7 +1,7 @@
 import { interfaces } from 'inversify';
 import Bind = interfaces.Bind
-import Types from '@Container/Types';
-import { DatabaseDialectNotFoundException } from '@Core/Exceptions/DatabaseDialectNotFoundException';
+import Types from 'Container/Types';
+import { DatabaseDialectNotFoundException } from 'Core/Exceptions/DatabaseDialectNotFoundException';
 import { Dialects } from './Dialects';
 import { DialectContract } from './DialectContract'
 import { DatabaseHandleFactory } from '../Contracts/DatabaseHandleFactory';

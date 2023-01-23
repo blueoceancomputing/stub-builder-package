@@ -1,5 +1,5 @@
 import { describe, expect, it, beforeEach, jest } from '@jest/globals'
-import { OptionValidationException } from "@Core/Exceptions/OptionValidationException";
+import { OptionValidationException } from "Core/Exceptions/OptionValidationException";
 
 describe('Core/Exceptions/OptionValidationException', () => {
   it('should use the default message when one is not supplied', () => {

@@ -89,10 +89,10 @@ const config: Config.InitialOptions = {
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   moduleNameMapper: {
-    '^@Applications/(.*)': '<rootDir>/src/Applications/$1',
-    '^@Container/(.*)': '<rootDir>/src/Container/$1',
-    '^@Core/(.*)': '<rootDir>/src/Core/$1',
-    '^@Modules/(.*)': '<rootDir>/src/Modules/$1',
+    '^Applications/(.*)': '<rootDir>/src/Applications/$1',
+    '^Container/(.*)': '<rootDir>/src/Container/$1',
+    '^Core/(.*)': '<rootDir>/src/Core/$1',
+    '^Modules/(.*)': '<rootDir>/src/Modules/$1',
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
