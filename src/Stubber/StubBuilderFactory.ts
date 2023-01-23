@@ -22,7 +22,7 @@ class StubBuilderFactory {
    * @returns {StubBuilder}
    */
   public make(config: StubBuilderConfig): StubBuilder {
-    const stubBuilder = <StubBuilder> this.stubBuilderFactory(config);
+    const stubBuilder = <StubBuilder> this.stubBuilderFactory(config.type);
     return stubBuilder.setCustomArguments(config.arguments ?? {});
   }
 }
