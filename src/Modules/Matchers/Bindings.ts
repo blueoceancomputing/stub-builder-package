@@ -9,6 +9,7 @@ import { IntegerDataTypeMatcher } from './DataTypes/IntegerDataTypeMatcher';
 import { FixedPointDataTypeMatcher } from './DataTypes/FixedPointDataTypeMatcher';
 import { FloatingPointDataTypeMatcher } from './DataTypes/FloatingPointDataTypeMatcher';
 import { DateTimeDataTypeMatcher } from './DataTypes/DateTimeDataTypeMatcher';
+import { RelationshipMatcher } from './Relationships/RelationshipMatcher';
 
 module.exports = (bind: Bind) => {
 
@@ -20,4 +21,7 @@ module.exports = (bind: Bind) => {
   bind<DataTypeMatcher>(Types.DataTypeMatcher).to(FixedPointDataTypeMatcher);
   bind<DataTypeMatcher>(Types.DataTypeMatcher).to(FloatingPointDataTypeMatcher);
   bind<DataTypeMatcher>(Types.DataTypeMatcher).to(DateTimeDataTypeMatcher);
+
+  // Relationships
+  bind<RelationshipMatcher>(Types.RelationshipMatcher).to(RelationshipMatcher)
 }
