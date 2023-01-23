@@ -14,6 +14,7 @@
     "test": "jest",
     "build": "tsc",
     "dev": "yarn run build && node dist/entrypoint.js",
+    "preinstall": "which link-module-alias && link-module-alias clean || echo",
     "postinstall": "link-module-alias"
   },
   "devDependencies": {
