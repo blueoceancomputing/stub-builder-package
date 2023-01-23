@@ -9,7 +9,7 @@ abstract class DataTypeMatcher implements Matcher<InformationSchemaColumn, DataT
    * 
    * @var {Array<string>}
    */
-  public matchableDataTypes: Array<string> = [];
+  public abstract matchableDataTypes: Array<string>;
 
   /**
    * The formatted data type for this match
