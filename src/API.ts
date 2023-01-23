@@ -6,6 +6,9 @@ import { DatabaseFactory } from 'Core/Database/DatabaseFactory';
 import Types from 'Container/Types';
 import { DatabaseContract } from 'Core/Database/Contracts/DatabaseContract';
 import { InformationSchemaRepository } from 'Core/Repository/InformationSchemaRepository';
+import { InformationSchemaColumn } from 'Core/Repository/InformationSchemaRepository.types';
+import container from 'Container/Container';
+import { DataTypeTransformer } from 'Modules/Transformers/DataTypeTransformer';
 
 @injectable()
 class API {
@@ -38,10 +41,17 @@ class API {
     const handle = await database.dialect.connect(database.config);
     const informationSchemaRepository = new InformationSchemaRepository(handle);
 
-    const amazonPreferencesColumns = await informationSchemaRepository.getTableKeyColumnUsage('amazon_preferences');
+    const amazonPreferencesColumns = await informationSchemaRepository.getTableColumns('hubpic_ebayorders');
+    const amazonPreferencesColumn: InformationSchemaColumn = amazonPreferencesColumns.results[0]
 
-    console.log(amazonPreferencesColumns)
+    const dataTypeTransformer = container.get<DataTypeTransformer>(Types.DataTypeTransformer);
+    const transformedDataType = amazonPreferencesColumns.results.map(
+      (column) => dataTypeTransformer.transform(column)
+    )
 
+
+    console.log(transformedDataType)
+    
     return true;
   }
 }
