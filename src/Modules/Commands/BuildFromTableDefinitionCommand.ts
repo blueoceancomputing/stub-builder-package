@@ -1,5 +1,5 @@
 import { inject, injectable, interfaces } from 'inversify';
-import { ApplicationContract } from 'src/Applications/ApplicationContract';
+import { ApplicationContract } from '@Applications/ApplicationContract';
 import { CommandContract } from './CommandContract'
 import {
   BuildFromDatabaseTableDefintionOptions as Options,
